@@ -1,6 +1,7 @@
 # Lab 5, Part 1
 
 import mileage
+from mileage import MileageError
 import sqlite3
 from unittest import TestCase
 
@@ -50,11 +51,11 @@ class TestMileageDB(TestCase):
             mileage.add_miles(None, 100)
 
     def test_add_new_vehicle_invalid_new_miles(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(MileageError):
             mileage.add_miles('Car', -100)
-        with self.assertRaises(Exception):
+        with self.assertRaises(MileageError):
             mileage.add_miles('Car', 'abc')
-        with self.assertRaises(Exception):
+        with self.assertRaises(MileageError):
             mileage.add_miles('Car', '12.def')
 
     # Test new vehicles test added to DB using upper case

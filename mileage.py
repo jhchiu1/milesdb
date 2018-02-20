@@ -4,10 +4,19 @@ import sqlite3
 
 db_url = 'mileage.db'   # Assumes the table miles have already been created.
 
+"""
+    Before running this test, create test_miles.db
+    Create expected miles table
+    create table miles (vehicle text, total_miles float);
+"""
+
+class MileageError(Exception):
+    pass
+
 def main():
     while True:
         while True:
-            vehicle = input('Enter vehicle name or enter to quit')
+            vehicle = input('Enter vehicle name or enter to quit: ')
             if not vehicle:
                 break
 
